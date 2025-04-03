@@ -21,8 +21,9 @@ export function Welcome() {
       formData.append('file', file);
   
       try {
+        const url = process.env.API_URL+':'+process.env.API_PORT
         // You can write the URL of your server or any other endpoint used for file upload
-        const result = await fetch('http://localhost:3001/upload-file', {
+        const result = await fetch(`${url}/upload-file`, {
           method: 'POST',
           body: formData,
         });

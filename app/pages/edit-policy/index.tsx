@@ -30,7 +30,8 @@ export default function PolicyEdit() {
 
   const getPolicyData = async () => {
       try {
-        const result = await fetch('http://localhost:3001/get-policy-text');
+        const url = process.env.API_URL+':'+process.env.API_PORT
+        const result = await fetch(`${url}/get-policy-text`);
   
         const data = await result.json();
         console.log(data);
@@ -45,11 +46,12 @@ export default function PolicyEdit() {
 
   const savePolicyData = async () => {
     try{
+      const url = process.env.API_URL+':'+process.env.API_PORT
       // const formData = new FormData();
       // formData.append('title', title)
       // formData.append('content', value)
       const payload = {title: title, content: value, version: '1.0.0'}
-      const result = await fetch("http://localhost:3001/save-policy-text",{
+      const result = await fetch(`${url}/save-policy-text`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
