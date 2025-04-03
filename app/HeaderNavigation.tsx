@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 // import { Icons } from "@/components/icons"
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { NavLink } from "react-router"
 
 const navigation = [
     { name: 'Upload Policy', href: 'dashboard', current: true },
@@ -46,17 +47,23 @@ export function NavigationMenuDemo() {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'amj bdk agd aty aul ayp azp' : 'bdk btq agd aty aul ayp azp',
-                      'rounded-md px-3 py-2 text-sm font-medium',
-                    )}
-                  >
-                    {item.name}
-                  </a>
+                  // <a
+                  //   key={item.name}
+                  //   href={item.href}
+                  //   aria-current={item.current ? 'page' : undefined}
+                  //   className={classNames(
+                  //     item.current ? 'amj bdk agd aty aul ayp azp' : 'bdk btq agd aty aul ayp azp',
+                  //     'rounded-md px-3 py-2 text-sm font-medium',
+                  //   )}
+                  // >
+                  //   {item.name}
+                  // </a>
+                  <NavLink to={item.href} className={classNames(
+                        item.current ? 'amj bdk agd aty aul ayp azp' : 'bdk btq agd aty aul ayp azp',
+                        'rounded-md px-3 py-2 text-sm font-medium',
+                      )}>
+                        {item.name}
+                  </NavLink>
                 ))}
               </div>
             </div>
