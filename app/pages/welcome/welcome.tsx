@@ -21,7 +21,8 @@ export function Welcome() {
       formData.append('file', file);
   
       try {
-        const url = process.env.API_URL+':'+process.env.API_PORT
+        const url = import.meta.env.VITE_API_URL
+        // const url = process.env.REACT_APP_API_URL+':'+process.env.REACT_APP_API_PORT
         // You can write the URL of your server or any other endpoint used for file upload
         const result = await fetch(`${url}/upload-file`, {
           method: 'POST',

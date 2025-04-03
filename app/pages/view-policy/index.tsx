@@ -30,7 +30,8 @@ export default function PolicyView() {
   const getPolicyData = async () => {
       try {
         // You can write the URL of your server or any other endpoint used for file upload
-        const url = process.env.API_URL+':'+process.env.API_PORT
+        // const url = process.env.REACT_APP_API_URL+':'+process.env.REACT_APP_API_PORT
+        const url = import.meta.env.VITE_API_URL
         const result = await fetch(`${url}/get-policy-text`);
   
         const policy = await result.json();

@@ -30,7 +30,8 @@ export default function PolicyEdit() {
 
   const getPolicyData = async () => {
       try {
-        const url = process.env.API_URL+':'+process.env.API_PORT
+        // const url = process.env.API_URL+':'+process.env.API_PORT
+        const url = import.meta.env.VITE_API_URL
         const result = await fetch(`${url}/get-policy-text`);
   
         const data = await result.json();
@@ -46,7 +47,8 @@ export default function PolicyEdit() {
 
   const savePolicyData = async () => {
     try{
-      const url = process.env.API_URL+':'+process.env.API_PORT
+      // const url = process.env.REACT_APP_API_URL+':'+process.env.REACT_APP_API_PORT
+      const url = import.meta.env.VITE_API_URL
       // const formData = new FormData();
       // formData.append('title', title)
       // formData.append('content', value)
