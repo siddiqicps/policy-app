@@ -22,7 +22,7 @@ export function Welcome() {
   
       try {
         // You can write the URL of your server or any other endpoint used for file upload
-        const result = await fetch('http://localhost:3000/upload-file', {
+        const result = await fetch('http://localhost:3001/upload-file', {
           method: 'POST',
           body: formData,
         });

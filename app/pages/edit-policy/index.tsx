@@ -30,7 +30,7 @@ export default function PolicyEdit() {
 
   const getPolicyData = async () => {
       try {
-        const result = await fetch('http://localhost:3000/get-policy-text');
+        const result = await fetch('http://localhost:3001/get-policy-text');
   
         const data = await result.json();
         console.log(data);
@@ -49,7 +49,7 @@ export default function PolicyEdit() {
       // formData.append('title', title)
       // formData.append('content', value)
       const payload = {title: title, content: value, version: '1.0.0'}
-      const result = await fetch("http://localhost:3000/save-policy-text",{
+      const result = await fetch("http://localhost:3001/save-policy-text",{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
