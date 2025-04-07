@@ -4,6 +4,7 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { useEffect, useState } from "react";
 import mammoth from "mammoth";
+import 'react-quill-new/dist/quill.snow.css';
 
 // import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 // import "@cyntler/react-doc-viewer/dist/index.css";
@@ -47,7 +48,9 @@ export default function PolicyView() {
     <main className="flex items-center justify-center pt-7 pb-4">
       <div className="aks">
         <div className="fy vy cwy dwm"> 
-          <div  dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="ql-container ql-snow">
+            <div className="ql-editor"   dangerouslySetInnerHTML={{ __html: html }}/>
+          </div>
           {/* <DocViewer documents={docs} initialActiveDocument={docs[0]} pluginRenderers={DocViewerRenderers} /> */}
         </div>
       </div>

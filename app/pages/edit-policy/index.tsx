@@ -1,10 +1,25 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import ReactDOM from 'react-dom';
 
 // import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 // import "@cyntler/react-doc-viewer/dist/index.css";
 
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
+// import {Editor, EditorState} from 'draft-js';
+// import 'draft-js/dist/Draft.css';
+// import { addClass, removeClass, Browser } from '@syncfusion/ej2-base';
+// import { RichTextEditorComponent, Toolbar, Inject, Image, Link, HtmlEditor, Count, QuickToolbar, Table, EmojiPicker, Video, Audio, FormatPainter, PasteCleanup, ImportExport, SlashMenu } from '@syncfusion/ej2-react-richtexteditor';
+// import { ToolbarSettingsModel, ActionBeginEventArgs, FileManager, FileManagerSettingsModel, QuickToolbarSettingsModel, SlashMenuSettingsModel, ImportWordModel, ExportWordModel, ExportPdfModel } from '@syncfusion/ej2-react-richtexteditor';
+// import { createElement } from '@syncfusion/ej2-base';
+// import { MentionComponent } from '@syncfusion/ej2-react-dropdowns';
+// import * as CodeMirror from 'codemirror';
+// import { Editor as ICodeMirror } from 'codemirror';
+// import 'codemirror/mode/javascript/javascript';
+// import 'codemirror/mode/css/css.js';
+// import 'codemirror/mode/htmlmixed/htmlmixed.js';
+// import './tools.css';
+
 
 
 export default function PolicyEdit() {
@@ -14,6 +29,38 @@ export default function PolicyEdit() {
   const [html, setHtml] = useState('');
   const [value, setValue] = useState('');
   const [title, setTitle] = useState('');
+  
+  const modules = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      ['blockquote', 'code-block'],
+      ['link', 'image', 'video', 'formula'],
+
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      [{ 'direction': 'rtl' }],                         // text direction
+
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+      ['clean']
+    ],
+  }
+
+  const formats = [
+    'header',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image'
+  ]
+
+
 
   // const handlePolicyData = async () => {
   //   const file = await getPolicyData();
@@ -81,7 +128,9 @@ export default function PolicyEdit() {
               </div>
             </div>
           </div> 
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats} />
+          {/* <Editor editorState={editorState} onChange={setEditorState} /> */}
+          {/* <RichTextEditorComponent id="toolsRTE"><Inject services={[Toolbar, Image, Link, HtmlEditor, QuickToolbar]} /></RichTextEditorComponent> */}
           <div className="mt-6 flex items-center justify-end gap-x-6">
             {/* <button type="button" className="text-sm/6 font-semibold text-gray-900">Cancel</button> */}
             <button type="button" className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

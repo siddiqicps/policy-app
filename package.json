@@ -18,8 +18,10 @@
     "@radix-ui/react-slot": "^1.1.2",
     "@react-router/node": "^7.3.0",
     "@react-router/serve": "^7.3.0",
+    "@syncfusion/ej2-react-richtexteditor": "^29.1.35",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "codemirror": "^6.0.1",
     "isbot": "^5.1.17",
     "lucide-react": "^0.483.0",
     "mammoth": "^1.9.0",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@react-router/dev": "^7.3.0",
     "@tailwindcss/vite": "^4.0.14",
+    "@types/draft-js": "^0.11.18",
     "@types/node": "^20.17.24",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
