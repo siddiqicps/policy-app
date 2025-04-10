@@ -81,12 +81,12 @@ export default function PolicyEdit() {
         const url = import.meta.env.VITE_API_URL
         const result = await fetch(`${url}/get-policy-text`);
   
-        const data = await result.json();
-        console.log(data);
+        const parsed_result = await result.json();
+        console.log(parsed_result.data);
         // setHtml(data.html);
-        setValue(data.text)
+        setValue(parsed_result.data[0].content)
+        setTitle(parsed_result.data[0].title)
         // return data;
-        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -122,7 +122,7 @@ export default function PolicyEdit() {
             <div className="mt-2">
               <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                 {/* <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">Enter policy title here</div> */}
-                <input type="text" name="title" id="title" 
+                <input type="text" name="title" id="title" value={title}
                   className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" 
                   placeholder="Enter policy title here" onChange={(e) => setTitle(e.target.value)}/>
               </div>
